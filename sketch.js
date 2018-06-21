@@ -20,7 +20,7 @@ var sal;
 
 function preload() {
   mcsv = loadTable(
-    'new.csv',
+    'backend/new.csv',
     'csv'
   );
 }
@@ -114,5 +114,17 @@ function getThing() {
 }
 
 function saveFile() {
-  saveTable(mcsv, "new.csv", "csv");
+  // saveTable(mcsv, "new.csv", "csv");
+  var table = mcsv.getArray();
+  $.ajax({
+    method: "POST",
+    url: "backend/",
+    data: { table: table }
+  })
+  .done(function(ret) {
+    console.log(ret.msg);
+    background(240);
+    text(ret.msg, 25, 150);
+  });
+
 }
