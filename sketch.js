@@ -10,13 +10,13 @@ var syakai = [];
 var taiku = [];
 var bijyutsu = [];
 
-var koku;
-var san;
-var ri;
-var sya;
-var tai;
-var bi;
-var sal;
+var koku = 0;
+var san = 0;
+var ri = 0;
+var sya = 0;
+var tai = 0;
+var bi = 0;
+var sal = 0;
 
 function preload() {
   mcsv = loadTable(
