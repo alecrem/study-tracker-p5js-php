@@ -1,6 +1,12 @@
 <?php
 header('Content-Type: application/json');
-$table = $_REQUEST['table'];
+$table = $_POST['table'];
+
+if(!$table) {
+	$ret = array('msg' => 'CSVが保存できませんでした');
+	echo json_encode($ret);
+	return $ret;
+}
 
 $fp = fopen('new.csv', 'w');
 foreach ($table as $row) {
